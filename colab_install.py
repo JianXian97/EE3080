@@ -13,10 +13,12 @@ default_channels = [
     "conda-forge",
     "omnia",
 ]
-default_packages = [
-    "rdkit",
+default_packages = [ 
     "openmm",
     "pdbfixer",
+]
+default_packages_1 = [ 
+    "rdkit",
 ]
 
 
@@ -70,6 +72,7 @@ def install(
 
   is_installed = []
   packages = list(set(default_packages + additional_packages))
+  packages1 = list(set(default_packages_1 + additional_packages))
   for package in packages:
     package = "simtk" if package == "openmm" else package
     is_installed.append(os.path.isdir(os.path.join(python_path, package)))
@@ -116,6 +119,13 @@ def install(
       "--yes",
       "python=={}".format(python_version),
       *packages,
+  ])
+  subprocess.check_call([
+      os.path.join(conda_path, "bin", "conda"),
+      "install",
+      "--yes",
+      "python=={}".format(python_version),
+      *packages1,
   ])
   logger.info("done")
   logger.info("conda packages installation finished!")
