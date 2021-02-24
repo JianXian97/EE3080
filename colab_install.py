@@ -1,8 +1,3 @@
-https://raw.githubusercontent.com/deepchem/deepchem/master/scripts/colab_install.py"""
-Original code by @philopon
-https://gist.github.com/philopon/a75a33919d9ae41dbed5bc6a39f5ede2
-"""
-
 import sys
 import os
 import requests
