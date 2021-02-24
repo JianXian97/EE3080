@@ -124,6 +124,9 @@ def install(
       os.path.join(conda_path, "bin", "conda"),
       "install",
       "--yes",
+      "-q",
+      "-y",
+      "-c",
       "python=={}".format(python_version),
       *packages1,
   ])
